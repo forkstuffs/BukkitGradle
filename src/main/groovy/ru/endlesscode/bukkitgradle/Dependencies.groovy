@@ -46,6 +46,12 @@ class Dependencies {
             aikar = {
                 addRepo('aikar', 'https://repo.aikar.co/content/groups/aikar/')
             }
+            codemc = {
+                addRepo('codemc', 'https://repo.codemc.io/repository/maven-public/')
+            }
+            jitpack = {
+                addRepo('jitpack', 'https://jitpack.io')
+            }
         }
 
         depHandler.ext {
@@ -54,6 +60,8 @@ class Dependencies {
             bukkit = { api('org.bukkit', 'bukkit', 'spigot') }
             craftbukkit = { api('org.bukkit', 'craftbukkit') }
             paperApi = { api('com.destroystokyo.paper', 'paper-api', 'papermc') }
+            luckPerms = { api('net.luckperms', 'api', '5.0') }
+            vault = { api('com.github.MilkBowl', 'VaultAPI', '1.7') }
         }
     }
 
@@ -62,6 +70,10 @@ class Dependencies {
             name = repoName
             url = repoUrl
         }
+    }
+
+    private static Dependency api(String groupId, String artifactId, String version, String... requiredRepos) {
+        return dep(groupId, artifactId, version, requiredRepos)
     }
 
     private static Dependency api(String groupId, String artifactId, String... requiredRepos) {

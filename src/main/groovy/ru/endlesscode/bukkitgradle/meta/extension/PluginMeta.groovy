@@ -8,10 +8,11 @@ class PluginMeta {
     private final MetaItem description = new MetaItem("description")
     private final MetaItem main = new MetaItem("main", true)
     private final MetaItem version = new MetaItem("version", true)
+    private final MetaItem apiVersion = new MetaItem("version")
     private final MetaItem url = new MetaItem("website")
     private final MetaItem authors = new MetaItem("authors")
 
-    final List<MetaItem> items = [name, description, main, version, url, authors]
+    final List<MetaItem> items = [name, description, main, version, apiVersion, url, authors]
 
     PluginMeta() {
         // Nothing by default
@@ -23,6 +24,14 @@ class PluginMeta {
         setMain({ "${project.group}.${getName().toLowerCase()}.${getName()}" })
         setVersion({ project.version })
         setUrl({ project.findProperty("url") })
+    }
+
+    String getApiVersion() {
+        return apiVersion.value
+    }
+
+    void setApiVersion(apiVersion) {
+        this.apiVersion.value = apiVersion
     }
 
     void setName(name) {

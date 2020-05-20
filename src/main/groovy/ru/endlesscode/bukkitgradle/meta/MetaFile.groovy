@@ -13,7 +13,7 @@ class MetaFile {
     public static final String NAME = "plugin.yml"
 
     private static final String[] KNOWN_FIELDS = [
-            "name", "description", "version", "author", "authors", "website", "main"
+            "name", "description", "version", "apiVersion", "author", "authors", "website", "main"
     ]
 
     private final List<String> metaLines = []
